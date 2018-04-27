@@ -1,3 +1,5 @@
 {
-	"a": "aaa"
+	"ssh": "14419",
+	"jenkins": "https://ced19bf5.ngrok.io",
+	"redmine": "https://850c0deb.ngrok.io"
 }
