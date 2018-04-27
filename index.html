@@ -1,7 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Page Title</title>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<a href='https://ae9a6380.ngrok.io'>redmine</a>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+		$(function () {
+			$("#output").html("<b>文字出力します。</b>");
+
+			$.getJSON("test.json", function (data) {
+				$('p').css('color', 'red');
+				// alert(data.a);
+
+			});
+
+
+		})
+	</script>
+	<h1>TEST</h1>
+	<p>こにちはaa</p>
+	<div id="output"></div>
+	<!-- <script>
+		$(document).ready(function () {
+		});
+	</script> -->
 </body>
+
 </html>
