@@ -1,5 +1,14 @@
-{
-	"ssh": "14419",
-	"jenkins": "https://ced19bf5.ngrok.io",
-	"redmine": "https://850c0deb.ngrok.io"
-}
+[
+	{
+		"name": "ssh",
+		"value": "14419"
+	},
+	{
+		"name": "jenkins",
+		"value": "https://ced19bf5.ngrok.io"
+	},
+	{
+		"name": "redmine",
+		"value": "https://850c0deb.ngrok.io"
+	}
+]

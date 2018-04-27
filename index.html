@@ -3,19 +3,28 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Page Title</title>
+	<title>Page Title</title>>
 </head>
 
 <body>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script>
-		$(function () {
-			$("#output").html("<b>文字出力します。</b>");
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-			$.getJSON("test.json", function (data) {
+	<script>
+		$(function() {
+
+			var $table = $('#table');
+			var mydata;
+
+			$.getJSON("test.json", function(data) {
 				$('p').css('color', 'red');
 				// alert(data.a);
-
+				$("#output").html(
+					data[0].name + ":" + data[0].value + "<br>" +
+					data[1].name + ":<a href='" + data[1].value + "'>リンク</a><br>" +
+					data[2].name + ":<a href='" + data[2].value + "'>リンク</a><br>"
+				);
+				mydata = data;
+				console.log('asda'+mydata);
 			});
 
 
@@ -24,10 +33,22 @@
 	<h1>TEST</h1>
 	<p>こにちはaa</p>
 	<div id="output"></div>
+
 	<!-- <script>
 		$(document).ready(function () {
 		});
 	</script> -->
+
+	<!-- <div class="container"> -->
+		<!-- <table id="table" data-height="460">
+			<thead>
+				<tr>
+					<th data-field="name">name</th>
+					<th data-field="value">value</th>
+				</tr>
+			</thead>
+		</table> -->
+	<!-- </div> -->
 </body>
 
 </html>
