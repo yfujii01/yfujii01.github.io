@@ -3,35 +3,39 @@
 
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Page Title</title>
 </head>
 
 <body>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
 
 	<script>
-		$(function() {
-
+	$(function() {
+		$.getJSON("param.json", function(jdata) {
 			var $table = $('#table');
-			var mydata;
-
-			$.getJSON("param.json", function(data) {
-				$('p').css('color', 'red');
-				// alert(data.a);
-				$("#output").html(
-					data[0].name + ":" + data[0].value + "<br>" +
-					data[1].name + ":<a href='" + data[1].value + "'>リンク</a><br>" +
-					data[2].name + ":<a href='" + data[2].value + "'>リンク</a><br>"
-				);
-				mydata = data;
-				console.log('asda'+mydata);
-			});
-
-
-		})
+			$table.bootstrapTable({data: jdata});
+		});
+	});
 	</script>
-	<h1>TEST</h1>
-	<div id="output"></div>
-</body>
 
+	<div class="container">
+		<h1>MyPage</h1>
+		<table id="table" data-height="147">
+			<thead>
+				<tr>
+					<th data-field="name">Item Name</th>
+					<th data-field="value">Item Price</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</body>
 </html>
