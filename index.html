@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Page Title</title>>
+	<title>Page Title</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 			var $table = $('#table');
 			var mydata;
 
-			$.getJSON("test.json", function(data) {
+			$.getJSON("param.json", function(data) {
 				$('p').css('color', 'red');
 				// alert(data.a);
 				$("#output").html(
@@ -31,24 +31,7 @@
 		})
 	</script>
 	<h1>TEST</h1>
-	<p>こにちはaa</p>
 	<div id="output"></div>
-
-	<!-- <script>
-		$(document).ready(function () {
-		});
-	</script> -->
-
-	<!-- <div class="container"> -->
-		<!-- <table id="table" data-height="460">
-			<thead>
-				<tr>
-					<th data-field="name">name</th>
-					<th data-field="value">value</th>
-				</tr>
-			</thead>
-		</table> -->
-	<!-- </div> -->
 </body>
 
 </html>
