@@ -1,14 +1,14 @@
 [
 {
 "name":"ssh",
-"value":"11626"
+"value":"17082"
 },
 {
 "name":"redmine",
-"value":"https://750a4645.ngrok.io"
+"value":"https://cc90615b.ngrok.io"
 },
 {
 "name":"jenkins",
-"value":"https://3aad42d4.ngrok.io"
+"value":"https://8671af43.ngrok.io"
 }
 ]
