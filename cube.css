@@ -1,0 +1,66 @@
+
+  /* 名称はanimation-nameに合わせる */
+  @keyframes spincube {
+    /* パーセントで移動速度 */
+    16% { transform: rotateY(-90deg); }
+    33% { transform: rotateY(-90deg) rotateZ(90deg); }
+    50% { transform: rotateY(-180deg) rotateZ(90deg); }
+    66% { transform: rotateY(-270deg) rotateX(90deg); }
+    83% { transform: rotateX(90deg); }
+  }
+
+  .cubespinner {
+    /* 名前(なんでも良い */
+    animation-name: spincube;
+
+    /*
+      ease
+        cubic-bezier(0.25, 0.1, 0.25, 1.0) を指定したのと同じ（開始と完了を滑らかにする）（初期値）
+      linear
+        cubic-bezier(0.0, 0.0, 1.0, 1.0) を指定したのと同じ（一定）
+      ease-in
+        cubic-bezier(0.42, 0, 1.0, 1.0) を指定したのと同じ（ゆっくり始まる）
+      ease-out
+        cubic-bezier(0, 0, 0.58, 1.0) を指定したのと同じ（ゆっくり終わる）
+      ease-in-out
+        cubic-bezier(0.42, 0, 0.58, 1.0) を指定したのと同じ（ゆっくり始まってゆっくり終わる）
+      cubic-bezier(数値, 数値, 数値, 数値)
+        3次ベジェ曲線のP1とP2を (x1, y1, x2, y2) で指定
+    */
+    animation-timing-function: ease-in-out;
+
+    /* アニメーションの繰り返し回数を指定する */
+    animation-iteration-count: infinite;
+
+    /* アニメーション一回分の時間の長さ */
+    animation-duration: 20s;
+
+    /* -webkit-transform-style: preserve-3d; */
+    /* -moz-transform-style: preserve-3d; */
+    -ms-transform-style: preserve-3d;
+    /* 子要素がフラットに描画されるか立体的に描画されるかを指定する */
+    transform-style: preserve-3d;
+
+    /* 要素の変形transformにおける原点 */
+    transform-origin: 60px 60px 0;
+  }
+
+  .cubespinner div {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ccc;
+    background: rgba(255,255,255,0.8);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    line-height: 120px;
+    text-align: center;
+    font-size: 80px;
+  }
+
+  /* オブジェクトの面(方向[]・位置・サイズ)を決める */
+  .cubespinner .face1 { transform: translateZ(60px); }
+  .cubespinner .face2 { transform: rotateY(90deg) translateZ(60px); }
+  .cubespinner .face3 { transform: rotateY(90deg) rotateX(90deg) translateZ(60px); }
+  .cubespinner .face4 { transform: rotateY(180deg) rotateZ(90deg) translateZ(60px); }
+  .cubespinner .face5 { transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); }
+  .cubespinner .face6 { transform: rotateX(-90deg) translateZ(60px); }
