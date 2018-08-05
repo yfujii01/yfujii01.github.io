@@ -1,6 +1,6 @@
-// $(function () {
-//     console.log('start!!');
-// });
+$(function () {
+    console.log('start!!');
+});
 //
 // $(document).on('click', 'button', function () {
 //     console.log('クリックされました！');
@@ -30,9 +30,10 @@
 // })
 
 $(document).ready(function() {
-    $('#nav').load("html/nav.html");
-    $('#content-left').load("html/content-left.html");
-    $('#content-main').load("html/content-main.html");
-    $('#content-right').load("html/content-right.html");
-    $('#ad1').load("html/ad1.html");
+    $('.nav').load("html/nav.html");
+    $('.content-left').load("html/content-left.html");
+    $('.content-main').load("html/content-main.html");
+    $('.content-right').load("html/content-right.html");
+    $('.ad1').load("html/ad1.html");
 });
+
