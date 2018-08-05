@@ -29,7 +29,7 @@
     animation-iteration-count: infinite;
 
     /* アニメーション一回分の時間の長さ */
-    animation-duration: 20s;
+    animation-duration: 10s;
 
     -ms-transform-style: preserve-3d;
 
@@ -54,25 +54,25 @@
 
 /* オブジェクトの面(方向・位置・サイズ)を決める */
 .cubespinner .face1 {
-    transform: translateY(-10px) translateZ(20px);
+    transform: translateY(-20px) translateZ(20px);
 }
 
 .cubespinner .face2 {
-    transform: rotateY(90deg) translateY(-10px) translateZ(20px);
+    transform: rotateY(90deg) translateY(-20px) translateZ(20px);
 }
 
 .cubespinner .face3 {
-    transform: rotateY(90deg) rotateX(90deg) translateZ(30px);
+    transform: rotateY(90deg) rotateX(90deg) translateZ(40px);
 }
 
 .cubespinner .face4 {
-    transform: rotateY(180deg) rotateZ(90deg) translateX(-10px) translateZ(20px);
+    transform: rotateY(180deg) rotateZ(90deg) translateX(-20px) translateZ(20px);
 }
 
 .cubespinner .face5 {
-    transform: rotateY(-90deg) rotateZ(90deg) translateX(-10px) translateZ(20px);
+    transform: rotateY(-90deg) rotateZ(90deg) translateX(-20px) translateZ(20px);
 }
 
 .cubespinner .face6 {
-    transform: rotateX(-90deg) translateZ(10px);
+    transform: rotateX(-90deg) translateZ(0px);
 }
