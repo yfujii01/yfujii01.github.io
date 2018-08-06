@@ -12,6 +12,7 @@ $(document).ready(function() {
 
 //ナビバークリックイベント
 $(document).on('click', '.nav-link', function () {
+    alert('クリックされました！');
     console.log('クリックされました！');
     var linkpage = this.dataset.linkpage;
     $('.content-main').load("html/" + linkpage);
