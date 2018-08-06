@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 //ナビバークリックイベント
 $(document).on('click', '.nav-link', function () {
-    alert('クリックされました！');
+    alert('クリックされました！!!');
     console.log('クリックされました！');
     var linkpage = this.dataset.linkpage;
     $('.content-main').load("html/" + linkpage);
@@ -21,6 +21,7 @@ $(document).on('click', '.nav-link', function () {
     $('.nav-item').removeClass("active");
     jQuery(this).parent('li').addClass('active');
 });
+
 
 //画面上をクリックすることでナビバーを閉じる
 $(document).on('click', 'body', function () {
