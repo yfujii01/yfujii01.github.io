@@ -6,7 +6,7 @@ $(function () {
 //起動時ロード
 $(document).ready(function() {
     $('.nav').load("html/nav.html");
-    $('.content-main').load("html/content-main.html");
+    $('.content-main').load("html/bookmark.html");
     $('.ad1').load("html/ad1.html");
 });
 
