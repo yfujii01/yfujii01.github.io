@@ -13,15 +13,32 @@ body {
     /*background-color: rgba(180, 197, 243, 0.200);*/
 }
 
-.right-cont {
-    /*background-color: rgba(204, 241, 207, 0.200);*/
-}
+/*.right-cont {*/
+    /*!*background-color: rgba(204, 241, 207, 0.200);*!*/
+/*}*/
 
 img {
     max-width: 100%;
     height: auto;
 }
 
+/*左側にcubeを置くため感覚を開ける*/
 .navbar-brand {
     margin-left: 60px;
+}
+
+/*ナビバーの非選択リンク*/
+.navbar-nav .nav-item .nav-link {
+    color: gray;
+}
+
+/*ナビバーのアクティブリンク*/
+.navbar-nav .nav-item.active .nav-link {
+    color: black;
+
+}
+
+/*ナビバーのマウスオーバーリンク*/
+.navbar-nav .nav-item:hover .nav-link {
+    color: darkred;
 }
