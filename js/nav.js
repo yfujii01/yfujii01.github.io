@@ -1,16 +1,48 @@
-//ナビバークリックイベント(この書き方だとiosで動かない)
-$('.nav-link').on('click', function () {
-    console.log('クリックされました！');
-    var linkpage = this.dataset.linkpage;
-    $('.content-main').load("html/" + linkpage);
+//起動時イベント
+$(function () {
+    console.log('nav.js start!!');
 
-    //アクティブなページをナビに表示
-    $('.nav-item').removeClass("active");
-    jQuery(this).parent('li').addClass('active');
+    //JSONからナビアイテム作成
+    $.getJSON("json/nav.json", function (data) {
+        let ulObj = $("#nav-items-ul");
+        let len = data.length;
+
+        for (let i = 0; i < len; i++) {
+            let item_li = $("<li>").attr({
+                "class": 'nav-item'
+            });
+
+            if (data[i].isActive == "true") {
+                item_li.addClass("active");
+            }
+
+            let item = item_li.append($("<a>").attr({
+                    "class": "nav-link",
+                    "data-linkpage": data[i].link
+                }).text(data[i].title)
+            );
+
+            ulObj.append(item);
+        }
+
+        //ナビバークリックイベント追加
+        $('.nav-link').on('click', function () {
+            console.log('クリックされました！');
+            var linkpage = this.dataset.linkpage;
+            $('.content-main').load("html/" + linkpage);
+
+            //アクティブなページをナビに表示
+            $('.nav-item').removeClass("active");
+            jQuery(this).parent('li').addClass('active');
+        });
+
+
+        //画面上をクリックすることでナビバーを閉じる
+        $('body').on('click', function () {
+            $(".navbar-collapse").collapse('hide');
+        });
+    });
+
+
 });
 
-
-//画面上をクリックすることでナビバーを閉じる
-$('body').on('click', function () {
-    $(".navbar-collapse").collapse('hide');
-});

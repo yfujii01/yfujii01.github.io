@@ -1,0 +1,12 @@
+[
+  {
+    "title": "BookMark",
+    "link": "bookmark.html",
+    "isActive": "true"
+  },
+  {
+    "title": "Other",
+    "link": "otherpage.html",
+    "isActive": "false"
+  }
+]
