@@ -1,7 +1,7 @@
 /* navibar固定でずれるので */
 body {
     padding-top: 55px;
-    background-color: rgb(219, 186, 243, 0.200);
+    /*background-color: rgb(219, 186, 243, 0.200);*/
 
     /*画面ロード時にゆっくり表示する*/
     animation: fadeIn 5s ease 0s 1 normal;
