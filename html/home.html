@@ -1,28 +1,49 @@
 <link href="css/skdslider.css" rel="stylesheet">
 <script src="js/skdslider.min.js"></script>
 
-<h2>Home</h2>
+<!--<h2>Home</h2>-->
 
-<div id="demo1">
-    <div class="slide"><img src="image/1.jpg" /></div>
-    <div class="slide"><img src="image/2.jpg" /></div>
-    <div class="slide"><img src="image/3.jpg" /></div>
+<div id="home">
+    <div class="slide"><img src="image/1.jpg"/></div>
+    <div class="slide"><img src="image/2.jpg"/></div>
+    <div class="slide"><img src="image/3.jpg"/></div>
 </div>
-
+<div id="home2">
+    <p>Hello</p>
+    <p>こんにちは</p>
+    <p>謝謝</p>
+    <p></p>
+</div>
 <style>
-    .slide{
-        height: 60%;
+    .slide {
+        height: 70%;
+        width: 100%;
+    }
+
+    #home {
+        height: 70%;
+        /*background-color: #990000;*/
+    }
+
+    #home2{
+        text-align: center;
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        height: 20%;
+        top: 70%;
+        /*background-color: #15aaa1;*/
     }
 </style>
 
 <script>
-    $('#demo1').skdslider({
+    $('#home').skdslider({
         slideSelector: '.slide',
-        delay:5000,
+        delay: 5000,
         animationSpeed: 2000,
-        showNextPrev:true,
-        showPlayButton:true,
-        autoSlide:true,
-        animationType:'fading'
+        showNextPrev: true,
+        showPlayButton: true,
+        autoSlide: true,
+        animationType: 'fading'
     });
 </script>
