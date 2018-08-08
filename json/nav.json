@@ -10,6 +10,11 @@
     "isActive": "false"
   },
   {
+    "title": "Calender",
+    "link": "calender.html",
+    "isActive": "false"
+  },
+  {
     "title": "Contact",
     "link": "contact.html",
     "isActive": "false"
