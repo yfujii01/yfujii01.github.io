@@ -1,12 +1,22 @@
 [
   {
-    "title": "BookMark",
-    "link": "bookmark.html",
+    "title": "Home",
+    "link": "home.html",
     "isActive": "true"
   },
   {
     "title": "Access",
     "link": "access.html",
+    "isActive": "false"
+  },
+  {
+    "title": "Contact",
+    "link": "contact.html",
+    "isActive": "false"
+  },
+  {
+    "title": "BookMark",
+    "link": "bookmark.html",
     "isActive": "false"
   }
 ]

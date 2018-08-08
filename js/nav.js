@@ -1,8 +1,12 @@
-//起動時イベント
+//===============================
+// 起動時イベント
+//===============================
 $(function () {
     console.log('nav.js start!!');
 
-    //JSONからナビアイテム作成
+    //===============================
+    // JSONからナビアイテム作成
+    //===============================
     $.getJSON("json/nav.json", function (data) {
         let ulObj = $("#nav-items-ul");
         let len = data.length;
@@ -25,37 +29,41 @@ $(function () {
             ulObj.append(item);
         }
 
-        //ナビバークリックイベント追加
-        $('.nav-link').on('click', function () {
-            // console.log('クリックされました！');
-            var linkpage = this.dataset.linkpage;
+        eventLinkClick();
 
-            //1000msかけてゆっくり消える
-            $('#mainContent').fadeOut(1000, function () {
-                //コールバック
-
-                //フェードアウトが完了したらリンク先のコンテンツを読み込む
-                $('.content-main').load("html/" + linkpage);
-            });
-
-            //950ms後にフェードインを始める
-            //※fadeOutのコールバックとして実装すると一瞬全てのコンテンツが消えるためスクロールバーも消えてしまう
-            setTimeout(function () {
-                $('#mainContent').fadeIn(1000);
-            }, 950);
-
-            //アクティブなページをナビに設定
-            $('.nav-item').removeClass("active");
-            $(this).parent('li').addClass('active');
-        });
-
-
+        //===============================
         //画面上をクリックすることでナビバーを閉じる
+        //===============================
         $('body').on('click', function () {
             $(".navbar-collapse").collapse('hide');
         });
     });
-
-
 });
 
+function eventLinkClick() {
+    //===============================
+    //ナビバークリックイベント追加
+    //===============================
+    $('.nav-link').on('click', function () {
+        // console.log('クリックされました！');
+        var linkpage = this.dataset.linkpage;
+
+        //1000msかけてゆっくり消える
+        $('#mainContent').fadeOut(1000, function () {
+            //コールバック
+
+            //フェードアウトが完了したらリンク先のコンテンツを読み込む
+            $('.content-main').load("html/" + linkpage);
+        });
+
+        //950ms後にフェードインを始める
+        //※fadeOutのコールバックとして実装すると一瞬全てのコンテンツが消えるためスクロールバーも消えてしまう
+        setTimeout(function () {
+            $('#mainContent').fadeIn(1000);
+        }, 950);
+
+        //アクティブなページをナビに設定
+        $('.nav-item').removeClass("active");
+        $(this).parent('li').addClass('active');
+    });
+}
