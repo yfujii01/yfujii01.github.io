@@ -27,13 +27,26 @@ $(function () {
 
         //ナビバークリックイベント追加
         $('.nav-link').on('click', function () {
-            console.log('クリックされました！');
+            // console.log('クリックされました！');
             var linkpage = this.dataset.linkpage;
-            $('.content-main').load("html/" + linkpage);
 
-            //アクティブなページをナビに表示
+            //1000msかけてゆっくり消える
+            $('#mainContent').fadeOut(1000, function () {
+                //コールバック
+
+                //フェードアウトが完了したらリンク先のコンテンツを読み込む
+                $('.content-main').load("html/" + linkpage);
+            });
+
+            //950ms後にフェードインを始める
+            //※fadeOutのコールバックとして実装すると一瞬全てのコンテンツが消えるためスクロールバーも消えてしまう
+            setTimeout(function () {
+                $('#mainContent').fadeIn(1000);
+            }, 950);
+
+            //アクティブなページをナビに設定
             $('.nav-item').removeClass("active");
-            jQuery(this).parent('li').addClass('active');
+            $(this).parent('li').addClass('active');
         });
 
 
