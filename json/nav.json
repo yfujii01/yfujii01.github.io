@@ -5,8 +5,8 @@
     "isActive": "true"
   },
   {
-    "title": "Other",
-    "link": "otherpage.html",
+    "title": "Access",
+    "link": "access.html",
     "isActive": "false"
   }
 ]
