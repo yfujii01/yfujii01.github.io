@@ -4,18 +4,19 @@ body {
     background-color: rgb(219, 186, 243, 0.200);
 }
 
-
-/*.left-cont {*/
-    /*!*background-color: rgb(219, 186, 218, 0.200);*!*/
-/*}*/
-
-.mid-cont {
-    /*background-color: rgba(180, 197, 243, 0.200);*/
+.footer{
+    font-size: 23px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #15aaa1;
+    z-index: 30000;
 }
-
-/*.right-cont {*/
-    /*!*background-color: rgba(204, 241, 207, 0.200);*!*/
-/*}*/
+.footer .foot-cube{
+    position: fixed;
+    right: 50px;
+    bottom: 25px;
+}
 
 img {
     max-width: 100%;

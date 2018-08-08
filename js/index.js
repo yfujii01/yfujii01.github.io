@@ -8,4 +8,5 @@ $(document).ready(function() {
     $('.nav').load("html/nav.html");
     $('.content-main').load("html/bookmark.html");
     $('.ad1').load("html/ad1.html");
+    $('.footer').load("html/footer.html");
 });
