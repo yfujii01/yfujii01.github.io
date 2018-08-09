@@ -18,5 +18,10 @@
     "title": "Contact",
     "link": "contact.html",
     "isActive": "false"
+  },
+  {
+    "title": "Todo",
+    "link": "todo.html",
+    "isActive": "false"
   }
 ]
