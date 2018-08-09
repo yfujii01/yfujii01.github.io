@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>yfujii01</title>
+
+    <!--original css-->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/cube.css">
+
+    <!--jquery CDN-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+    <!--original js-->
+    <!--<script>$.getScript("js/index.js");</script>-->
+</head>
+
+<body>
+
+<!-- ナビゲーションバー -->
+<div class="nav"></div>
+
+<!--フッター-->
+<div class="footer"></div>
+
+<!-- コンテンツ -->
+<div id="mainContent" class="container">
+    <div class="content-home"></div>
+    <div class="content-access"></div>
+    <div class="content-calender"></div>
+    <div class="content-contact"></div>
+</div>
+</body>
+
+</html>
+
+
+<style>
+    .nav {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 60px;
+        background-color: black;
+        color: #cccccc;
+        z-index: 2000;
+    }
+
+    .nav .cubespinner {
+        position: fixed;
+        top: 30px;
+        left: 10px;
+        z-index: 3000;
+        color: black;
+    }
+
+    .navbar-brand {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        /*background-color: black;*/
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        right: 50px;
+        display: none;
+    }
+
+    .nav ul {
+        position: absolute;
+        top: 0px;
+        left: 40px;
+        /*background-color: antiquewhite;*/
+    }
+
+    .nav ul li {
+        display: inline;
+        margin-right: 1em;
+    }
+
+    /*ナビバーの非選択リンク*/
+    .navbar-nav .nav-item .nav-link {
+        color: gray;
+    }
+
+    /*ナビバーのアクティブリンク*/
+    .navbar-nav .nav-item.active .nav-link {
+        color: #15aaa1;
+    }
+
+    /*ナビバーのマウスオーバーリンク*/
+    .navbar-nav .nav-item:hover .nav-link {
+        color: aqua;
+    }
+</style>
+<style>
+    #mainContent {
+        position: relative;
+        top: 100px;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+<style>
+    .footer {
+        position: fixed;
+        z-index: 2000;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        background-color: black;
+        color: white;
+    }
+
+    .footer .foot-cube {
+        position: fixed;
+        right: 50px;
+        bottom: 25px;
+        color: black;
+    }
+
+</style>
+
+<script>
+    //起動時イベント
+    $(function () {
+        console.log('start!!');
+    });
+
+    //起動時ロード
+    $(document).ready(function () {
+        $('.nav').load("html/nav.html");
+        $('.content-home').load("html/home.html");
+        $('.content-access').load("html/access.html");
+        $('.content-calender').load("html/calender.html");
+        $('.content-contact').load("html/contact.html");
+        $('.footer').load("html/footer.html");
+    });
+</script>

@@ -16,7 +16,7 @@
           crossorigin="anonymous">
 
     <!--original css-->
-    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/custom.css">-->
     <link rel="stylesheet" type="text/css" href="css/cube.css">
 
     <!--jquery CDN-->
@@ -33,7 +33,7 @@
             crossorigin="anonymous"></script>
 
     <!--original js-->
-    <script>$.getScript("js/index.js");</script>
+    <!--<script>$.getScript("js/index.js");</script>-->
 </head>
 
 <body>
@@ -56,3 +56,80 @@
 </body>
 
 </html>
+
+<script>
+    //起動時イベント
+    $(function () {
+        console.log('start!!');
+    });
+
+    //起動時ロード
+    $(document).ready(function() {
+        $('.nav').load("html/nav.html");
+        $('.content-main').load("html/home.html");
+        $('.footer').load("html/footer.html");
+    });
+
+</script>
+
+<style>
+    /* navibar固定でずれるので */
+    body {
+        padding-top: 55px;
+        /*background-color: rgb(219, 186, 243, 0.200);*/
+
+        /*画面ロード時にゆっくり表示する*/
+        animation: fadeIn 5s ease 0s 1 normal;
+        -webkit-animation: fadeIn 5s ease 0s 1 normal;
+    }
+
+    @keyframes fadeIn {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }
+
+    @-webkit-keyframes fadeIn {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }
+
+    .footer{
+        font-size: 23px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #15aaa1;
+        z-index: 30000;
+    }
+    .footer .foot-cube{
+        position: fixed;
+        right: 50px;
+        bottom: 25px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /*左側にcubeを置くため感覚を開ける*/
+    .navbar-brand {
+        margin-left: 60px;
+    }
+
+    /*ナビバーの非選択リンク*/
+    .navbar-nav .nav-item .nav-link {
+        color: gray;
+    }
+
+    /*ナビバーのアクティブリンク*/
+    .navbar-nav .nav-item.active .nav-link {
+        color: darkred;
+
+    }
+
+    /*ナビバーのマウスオーバーリンク*/
+    .navbar-nav .nav-item:hover .nav-link {
+        color: darkred;
+    }
+</style>
