@@ -1,34 +1,29 @@
-<div class="google_map">
+<div class="google_cal">
     <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=i6kbq4558euvaadr51os7s25f4%40group.calendar.google.com&amp;color=%23865A5A&amp;ctz=Asia%2FTokyo"
             style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 </div>
 
 <style>
-    .google_map {
+    .google_cal {
         position: relative;
         width: 100%;
         padding-top: 55%;
-        /*background-color: #15aaa1;*/
     }
 
-    .google_map iframe {
+    .google_cal iframe {
         position: absolute;
         top: 0;
         width: 100%;
         height: 150%;
     }
 
-    /*@media (max-width: @screen-xs-max) { ... }*/
-    /*@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }*/
-    /*@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }*/
-    /*@media (min-width: @screen-lg-min) { ... }*/
     @media screen and (max-width: 440px) {
         /* 表示領域がXXXpx以下の場合に適用するスタイル */
-        .google_map iframe {
+        .google_cal iframe {
             position: absolute;
             top: 0;
             width: 100%;
-            height: 300%;
+            height: 250%;
         }
     }
 

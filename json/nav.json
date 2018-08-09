@@ -18,10 +18,5 @@
     "title": "Contact",
     "link": "contact.html",
     "isActive": "false"
-  },
-  {
-    "title": "BookMark",
-    "link": "bookmark.html",
-    "isActive": "false"
   }
 ]
