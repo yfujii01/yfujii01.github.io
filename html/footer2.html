@@ -1,9 +1,9 @@
 <div class="foot">
     <div class="foot-cube foot-cube1">
         <div class="cubespinner">
-            <div class="face1">よ</div>
-            <div class="face2">動</div>
-            <div class="face3">ん</div>
+            <div class="face1"></div>
+            <div class="face2"></div>
+            <div class="face3"></div>
             <div class="face4"></div>
             <div class="face5"></div>
             <div class="face6"></div>
@@ -11,9 +11,9 @@
     </div>
     <div class="foot-cube foot-cube2">
         <div class="cubespinner">
-            <div class="face1">う</div>
-            <div class="face2">き</div>
-            <div class="face3">で</div>
+            <div class="face1"></div>
+            <div class="face2"></div>
+            <div class="face3"></div>
             <div class="face4"></div>
             <div class="face5"></div>
             <div class="face6"></div>
@@ -21,9 +21,9 @@
     </div>
     <div class="foot-cube foot-cube3">
         <div class="cubespinner">
-            <div class="face1">こ</div>
-            <div class="face2">を</div>
-            <div class="face3">み</div>
+            <div class="face1"></div>
+            <div class="face2"></div>
+            <div class="face3"></div>
             <div class="face4"></div>
             <div class="face5"></div>
             <div class="face6"></div>
@@ -31,9 +31,9 @@
     </div>
     <div class="foot-cube foot-cube4">
         <div class="cubespinner">
-            <div class="face1">そ</div>
-            <div class="face2">楽</div>
-            <div class="face3">て</div>
+            <div class="face1"></div>
+            <div class="face2"></div>
+            <div class="face3"></div>
             <div class="face4"></div>
             <div class="face5"></div>
             <div class="face6"></div>
@@ -41,9 +41,9 @@
     </div>
     <div class="foot-cube foot-cube5">
         <div class="cubespinner">
-            <div class="face1">！</div>
-            <div class="face2">し</div>
-            <div class="face3">ね</div>
+            <div class="face1"></div>
+            <div class="face2"></div>
+            <div class="face3"></div>
             <div class="face4"></div>
             <div class="face5"></div>
             <div class="face6"></div>
@@ -52,9 +52,33 @@
     <!--<div class="message">Thunks for coming!!</div>-->
 </div>
 
+<script>
+    let date = new Date();
+    var yobi= new Array("日","月","火","水","木","金","土");
+
+    const footmessage = 'ようこそ!'+
+        date.getFullYear()+'年'+
+        (date.getMonth()+1)+'月'+
+        date.getDate()+'日'+
+        yobi[date.getDay()]+'曜日'+
+        'です！！！！！';
+    const mes = footmessage.split('');
+    const cubeCount = 5;
+    const maxLength = 6 * cubeCount;
+    mes.forEach(function (s, i) {
+        if (maxLength<i){
+            return;
+        }
+        let cubeI = (i % 5) + 1;
+        let faceI = Math.floor(i / 5) + 1;
+
+        $('.foot-cube' + cubeI + ' > .cubespinner > .face' + faceI).text(s);
+    })
+</script>
+
 <style>
     /*.foot .message{*/
-        /*font-size: 12px;*/
+    /*font-size: 12px;*/
     /*}*/
 
     .foot {
@@ -74,10 +98,25 @@
         bottom: 25px;
         color: black;
     }
-    .foot-cube1 {left: 20px;}
-    .foot-cube2 {left: 80px;}
-    .foot-cube3 {left: 140px;}
-    .foot-cube4 {left: 200px;}
-    .foot-cube5 {left: 260px;}
+
+    .foot-cube1 {
+        left: 20px;
+    }
+
+    .foot-cube2 {
+        left: 80px;
+    }
+
+    .foot-cube3 {
+        left: 140px;
+    }
+
+    .foot-cube4 {
+        left: 200px;
+    }
+
+    .foot-cube5 {
+        left: 260px;
+    }
 
 </style>
