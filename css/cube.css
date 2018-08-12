@@ -29,7 +29,7 @@
     animation-iteration-count: infinite;
 
     /* アニメーション一回分の時間の長さ */
-    animation-duration: 10s;
+    animation-duration: 20s;
 
     -ms-transform-style: preserve-3d;
 
