@@ -1,25 +1,13 @@
-<nav class="navbar mr-auto fixed-top navbar-expand-lg navbar-light bg-light">
-    <!--ナビバータイトル-->
-    <a class="navbar-brand title-str" href="#"></a>
+<nav class="navbar">
 
-    <!--横幅が狭くなった場合に表示されるメニュートグル-->
-    <button class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!--リンク-->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul id="nav-items-ul" class="navbar-nav mr-auto">
-            <!--nav.jsonから読み込み-->
-        </ul>
+    <!--横幅が狭くなった場合に表示するメニュートグル-->
+    <div class="nav-content">MENU
     </div>
 
+    <!--リンク-->
+    <ul class="nav-link-ul" data-position="init" data-move="none">
+        <!--nav.jsonから読み込み-->
+    </ul>
 </nav>
 
 <script>
@@ -33,7 +21,7 @@
         // JSONからナビアイテム作成
         //===============================
         $.getJSON("json/nav.json", function (data) {
-            let ulObj = $("#nav-items-ul");
+            let ulObj = $(".nav-link-ul");
             let len = data.length;
 
             for (let i = 0; i < len; i++) {
@@ -41,7 +29,7 @@
                     "class": 'nav-item'
                 });
 
-                if (data[i].isActive == "true") {
+                if (data[i].isActive === "true") {
                     item_li.addClass("active");
                 }
 
@@ -54,16 +42,18 @@
                 ulObj.append(item);
             }
 
-            //リンククリックイベントを追加
+            //クリックイベントを追加
             eventLinkClick();
+            eventBodyClick();
+            eventMenuClick();
         });
     });
 
-    function eventLinkClick() {
+    function eventLinkClick(keyframes, options) {
         //===============================
         //ナビバークリックイベント
         //===============================
-        $('.nav-link').on('click', function () {
+        $('.nav-link').on('click', function (keyframes, options) {
             // console.log('クリックされました！');
             var linkpage = this.dataset.linkpage.replace('.html', '');
 
@@ -72,9 +62,9 @@
 
             // 移動先情報取得
             let s = '.content-' + linkpage;
-            var target = $(s);
+            const target = $(s);
             // 移動先を数値で取得
-            var position = target.offset().top - 65;
+            const position = target.offset().top - 65;
             // スムーススクロール
             $('body,html').animate({scrollTop: position}, speed, 'swing');
 
@@ -84,57 +74,160 @@
             $(this).parent('li').addClass('active');
         });
     }
+
+    function eventMenuClick() {
+        //===============================
+        //Menuクリックイベント
+        //===============================
+        $('.nav-content').on('click', function () {
+            let data_move = $('.nav-link-ul').attr('data-move');
+            if (data_move == 'move') {
+                return;
+            }
+            let data_posi = $('.nav-link-ul').attr('data-position');
+            if (data_posi != 'init') {
+                return;
+            }
+            if (data_posi == 'init') {
+                $('.nav-link-ul').attr('data-move', 'move');
+            }
+
+            const time = 200;
+            const maxRatio = 1;
+            const e = $(".nav-link-ul");
+            const initPos = -200;
+            const movePos = 200;
+            (function move() {
+                // console.log(move.endTime);
+                move.endTime || (move.endTime = Date.now() + time);
+                let ratio = Math.min(maxRatio, maxRatio - (
+                    move.endTime - Date.now()) / time);
+                e.css('right', initPos + movePos * ratio + "px");
+                if (ratio < maxRatio) {
+                    setTimeout(move, 10);
+                }
+            })();
+            setTimeout(function () {
+                console.log('finish!!!!!!');
+                $('.nav-link-ul').attr('data-position', 'open');
+                $('.nav-link-ul').attr('data-move', 'none');
+            },time);
+        });
+
+    }
+
+    function eventBodyClick() {
+        //===============================
+        //Bodyクリックイベント
+        //===============================
+        $('body').on('click', function () {
+            let data_move = $('.nav-link-ul').attr('data-move');
+            if (data_move == 'move') {
+                return;
+            }
+            let data_posi = $('.nav-link-ul').attr('data-position');
+            if (data_posi != 'open') {
+                return;
+            }
+            if (data_posi == 'open') {
+                $('.nav-link-ul').attr('data-move', 'move');
+            }
+
+            const time = 200;
+            const maxRatio = 1;
+            const e = $(".nav-link-ul");
+            const initPos = 0;
+            const movePos = -200;
+            (function move() {
+                // console.log(move.endTime);
+                move.endTime || (move.endTime = Date.now() + time);
+                let ratio = Math.min(maxRatio, maxRatio - (
+                    move.endTime - Date.now()) / time);
+                e.css('right', initPos + movePos * ratio + "px");
+                if (ratio < maxRatio) {
+                    setTimeout(move, 10);
+                }
+            })();
+            setTimeout(function () {
+                console.log('finish!!!!!!');
+                $('.nav-link-ul').attr('data-position', 'init');
+                $('.nav-link-ul').attr('data-move', 'none');
+            },time);
+
+        });
+    }
 </script>
 
 <style>
-    .nav {
+    .navbar {
         position: fixed;
         top: 0px;
         left: 0px;
         width: 100%;
         height: 40px;
-        background-color: black;
+        background-color: rebeccapurple;
         color: #cccccc;
         z-index: 2000;
     }
 
-    .navbar-brand {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        /*background-color: black;*/
-    }
-
-    .navbar-toggler {
-        /*position: absolute;*/
-        /*right: 50px;*/
-        display: none;
-    }
-
-    .nav ul {
-        position: absolute;
-        top: 0px;
-        left: 10px;
-        /*background-color: antiquewhite;*/
-    }
-
-    .nav ul li {
-        display: inline;
-        margin-right: 1em;
-    }
-
     /*ナビバーの非選択リンク*/
-    .navbar-nav .nav-item .nav-link {
+    .nav-item {
         color: gray;
     }
 
     /*ナビバーのアクティブリンク*/
-    .navbar-nav .nav-item.active .nav-link {
+    .nav-item.active {
         color: #15aaa1;
     }
 
     /*ナビバーのマウスオーバーリンク*/
-    .navbar-nav .nav-item:hover .nav-link {
+    .nav-item:hover {
         color: aqua;
+    }
+
+    @media screen and (min-width: 500px) {
+        .nav-content {
+            display: none;
+        }
+
+        .nav ul {
+            position: absolute;
+            top: 0px;
+            left: 10px;
+        }
+
+        .nav ul li {
+            display: inline;
+            margin-right: 1em;
+        }
+    }
+
+    @media screen and (max-width: 499px) {
+        .nav-content {
+            overflow: auto;
+            /*position: absolute;*/
+            position: absolute;
+            top: 7px;
+            right: 10px;
+            z-index: 10000; /*最前面に*/
+            font-size: 10px;
+            font-weight: bold;
+            padding: 4px 4px 4px 6px;
+            text-align: center;
+            border: solid black;
+            border-radius: 20px 20px 20px 20px;
+            color: black;
+            background: #fff; /*背景色*/
+            width: 40px;
+        }
+
+        .nav-link-ul {
+            /*display: none;*/
+            background-color: black;
+            width: 150px;
+            top: 23px;
+            right: -200px;
+            position: absolute;
+        }
     }
 </style>
