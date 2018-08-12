@@ -223,11 +223,23 @@
 
         .nav-link-ul {
             /*display: none;*/
-            background-color: black;
+            background-color: white;
             width: 150px;
             top: 23px;
             right: -200px;
+            /*right: 0px;*/
             position: absolute;
+
+            border: solid black;
+            border-radius: 20px 20px 20px 20px;
+        }
+
+        .nav-content::selection{
+            background-color: transparent;
+        }
+
+        .nav-content:hover{
+            color: aqua;
         }
     }
 </style>
