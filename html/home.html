@@ -7,7 +7,54 @@
         <img src="https://grass-graph.moshimo.works/images/yfujii01.png">
     </div>
 </div>
+<div class="style-change">
+    <div class="sc-btn sc-btn1" data-link="index.html">style1</div>
+    <div class="sc-btn sc-btn2" data-link="style2.html">style2</div>
+</div>
 <style>
+    .style-change {
+        position: relative;
+        /*background-color: aqua;*/
+        height: 30px;
+    }
+
+    .sc-btn {
+        position: absolute;
+        width: 50px;
+        border: 1px black solid;
+        border-radius: 20px 20px 20px 20px;
+        box-shadow: 2px 2px;
+        background-color: #009926;
+        padding: 4px;
+
+        text-align: center;
+        font-size: 15px;
+
+        /*ゆっくり変化する*/
+        transition: 1.4s;
+
+    }
+
+    .sc-btn:hover {
+        background: #ffaaaa;
+        font-size: 20px;
+        width: 70px;
+    }
+
+    .sc-btn a:link {
+        color: #990000;
+    }
+
+    .sc-btn1 {
+        top: 0;
+        left: 0;
+    }
+
+    .sc-btn2 {
+        top: 0;
+        right: 0;
+    }
+
     #home {
         position: relative;
         height: 400px;
@@ -68,4 +115,33 @@
         //次のタイマー呼びだし
         setTimeout("imgTimer()", kirikae);
     }
+</script>
+
+<div class="anmaku"></div>
+<style>
+    .anmaku {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 0%;
+        width: 0%;
+        background-color: white;
+        z-index: 987654;
+        /*ゆっくり変化する*/
+        transition: 1s;
+    }
+</style>
+<script>
+    $('.sc-btn').on('click', function () {
+        console.log('year');
+        const link = $(this).attr('data-link');
+
+        $('.anmaku').css('height', '100%');
+        $('.anmaku').css('width', '100%');
+        setTimeout(function () {
+            console.log('asd');
+            // window.open($(this).attr('data-link'),'');
+            window.location.href = link;
+        }, 1000);
+    })
 </script>
